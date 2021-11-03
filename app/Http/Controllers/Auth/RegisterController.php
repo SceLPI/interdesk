@@ -102,6 +102,7 @@ class RegisterController extends Controller
 
         DB::commit();
 
-        return $user;
+        \Request::session()->flash('status', 'Usuário cadastrado com sucesso.');
+        return \Auth::user();
     }
 }
