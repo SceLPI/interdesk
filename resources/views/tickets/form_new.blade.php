@@ -22,6 +22,17 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="form-group">
+                                <label for="small_title">Selecione o município<b class="color-red">*</b></label>
+                                <select class="form-control selectpicker" id="city" name="city" >
+                                    <option value="">Selecione</option>
+                                    @foreach( $municipios as $municipio )
+                                        <option value="{{ $municipio['id'] }}" >{{ $municipio['nome'] }}</option>
+                                    @endforeach
+                                </select>
+                                <small class="form-text text-muted">{{ __('messages.ticket_small_subject_description') }}</small>
+                            </div>
+
+                            <div class="form-group">
                                 <label for="small_title">{{ __('messages.ticket_small_subject') }} <b class="color-red">*</b></label>
                                 <input type="text" class="form-control" id="small_title" name="small_title" maxlength="60" placeholder="{{ __('messages.enter_subject') }}" data-field_name="{{__('messages.field_new_ticket_small_title')}}">
                                 <small class="form-text text-muted">{{ __('messages.ticket_small_subject_description') }}</small>

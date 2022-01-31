@@ -14,35 +14,35 @@ class DepartmentSeeder extends Seeder
     {
         DB::table('departments')->insert(
             [
-                'name' => 'Presidencia',
+                'name' => 'Administrador',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         );
         DB::table('departments')->insert(
             [
-                'name' => 'Diretoria',
+                'name' => 'Sistema',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         );
         DB::table('departments')->insert(
             [
-                'name' => 'Pós Vendas',
+                'name' => 'Projetos',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         );
         DB::table('departments')->insert(
             [
-                'name' => 'Cobrança',
+                'name' => 'Prestação de Contas',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]
         );
         DB::table('departments')->insert(
             [
-                'name' => 'Administrativo',
+                'name' => 'Licitações',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]

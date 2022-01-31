@@ -17,6 +17,7 @@ use App\Models\UserTicketAccess;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 
 class TicketController extends Controller
@@ -27,6 +28,11 @@ class TicketController extends Controller
     }
 
     public function create() {
+
+        $retorno = Http::get("https://servicodados.ibge.gov.br/api/v1/localidades/estados/PI/municipios");
+
+        $municipios = $retorno->json();
+
         $priors = Prior::all();
         $users = User::where('id', '!=', \Auth::user()->id )
             ->where('should_display', true)->get();
@@ -35,7 +41,8 @@ class TicketController extends Controller
         return view('tickets.form_new')
             ->with('priors', $priors)
             ->with('users', $users)
-            ->with('departments', $departments);
+            ->with('departments', $departments)
+            ->with('municipios', $municipios);
     }
 
     public function edit($id) {
